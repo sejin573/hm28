@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>hm28 : Javascript object</title>
+    <style></style>
+    <script>
+      //리터럴 표기법(json)으로 사용자 객체 만들기
+      var student = {
+        // 프로퍼티 생성 및 초기화
+        name: "장세진", // 계좌 주인
+        IDcode: "HM28",
+        phone : "010-2507-9640", // 계좌 코드
+        food : "치킨",
+        birth : "4월 14일",
+        born : "부산",
+        balance: 100000, // 잔액 프로퍼티
+
+        // 메소드 작성
+        inquiry:function() {return this.balance;}, // 잔금 조회
+        deposit: function(money) {this.balance += money;}, // 저금. money 만큼 저금
+        withdraw: function(money) {
+          // 예금 인출, money는 인출하고자 하는 액수
+          // money가 balance보다 작다고 가정
+          this.balance -= money;
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <h3>리터럴 표기법으로 사용자 객체 만들기</h3>
+    <hr />
+    <script>
+      document.write("이름 : ");
+      document.write(student.name + "<br> ");
+      document.write("ID : ");
+      document.write(student.IDcode + "<br>");
+      document.write("전화번호 : ");
+      document.write(student.phone + "<br>");
+      document.write("좋아하는 음식 : ");
+      document.write(student.food + "<br>");
+      document.write("생일 : ");
+      document.write(student.birth + "<br>");
+      document.write("태어난곳 : ");
+      document.write(student.born + "<br>");
+      document.write("남은잔액 : ");
+      document.write(student.balance + "<br>");
+      document.write("<br>");
+
+      student.deposit(680000);
+      // 10000원 저금
+      document.write("680000원 월급 입금 후 잔액은 " + student.inquiry() + "<br>");
+      student.withdraw(150000);
+      document.write("첫째 주 150000원 지출 후 잔액은 " + student.inquiry() + "<br>");
+      student.withdraw(130000);
+      document.write("둘째 주 130000원 지출 후 잔액은 " + student.inquiry() + "<br>");
+      student.withdraw(200000);
+      document.write("셋째 주 200000원 지출 후 잔액은 " + student.inquiry() + "<br>");
+      student.withdraw(170000);
+      document.write("마지막 주 170000원 지출 후 잔액은 " + student.inquiry() + "<br>");
+      document.write("한달동안의 지출량은 650000원이다" + "<br>");
+
+    </script>
+  </body>
+</html>

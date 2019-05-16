@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. --> 
+ <html> 
+   <head> 
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 --> 
+     <meta charset="utf-8" /> 
+     <title>hm28 : Javascript object</title> 
+     <style></style> 
+     <script>//메소드로 사용할 3 개의 함수 작성 
+       function inquiry() { return this.amount; } // 잔금 조회 
+ function fill(money) { this.amount += 2; } // money 만큼 저금 
+ function consume(money) { // 예금 인출, money는 인출하고자 하는 액수 
+ // money가 amount보다 작다고 가정 
+ this.amount -= 2; 
+ //return money; 
+ } 
+ // 사용자 객체 만들기 
+ var box = new Object(); 
+ box.color = "Red "; // 계좌 주인 프로퍼티 생성 및 초기화 
+ box.size = "10"; // 코드 프로퍼티 생성 및 초기화 
+ box.amount = 0; // 잔액 프로퍼티 생성 및 초기화 
+ box.inquiry = inquiry; // 메소드 작성 
+ box.fill = fill; // 메소드 작성 
+ box.consume = consume; // 메소드 작성 
+      
+ </script> 
+ </head> 
+ <body> 
+ <h3>hm11 box 객체 new object 사용출력</h3> 
+ <hr> 
+ <script>   
+ var ques =  "깜짝 퀴즈 !! 박스의 초기  amount 값을 예측해 보세요 !" ; 
+  
+ var user = prompt(ques + "         값은 얼마입니까?", 0); 
+ if(user == null) {  
+ document.write("종료합니다"); 
+} 
+ else { 
+ var ans =  0;  
+ if(ans == user)  
+ document.write("정답! "); 
+ else 
+ document.write("아니오! "); 
+ document.write("박스의 초기 amount 값은" + "<strong>" + ans 
+ + "</strong>입니다<hr>"); 
+ } 
+ var current = new Date();  
+ if(ans==user) 
+ document.body.style.backgroundColor = "lightskyblue"; 
+ else 
+document.body.style.backgroundColor = "violet"; 
+  
+ document.write("BOX : "); 
+ document.write(box.color + ", "); 
+ document.write(box.size + ", "); 
+ document.write(box.amount + "<hr>"); 
+ document.write("Box - Color : "+box.color + "<br>"); 
+ document.write("Box - Size : "+box.size + "<br>"); 
+ document.write("Box - Amount : "+box.amount + "<hr>"); 
+box.fill();  
+ document.write("document.write()로 amount 프로퍼티 값 호출  " + box.inquiry() + "<br>"); 
+box.consume();  
+ document.write("document.write()로 amount 프로퍼티 값 호출 "  + box.inquiry() + "<br>"+"<hr>"); 
+ document.write("깜짝퀴즈 결과!! ","<br>");
+ document.write("답은 " + box.amount + "입니다.");
+ </script> 
+   </body> 
+ </html> 
