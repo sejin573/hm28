@@ -1,0 +1,172 @@
+<!-- 이 부분은 주석문입니다. 웹 브라우저는 주석을 화면에 출력하지 않습니다. -->
+<html>
+  <head>
+    <!-- 문서제목, 자바스크립트 코드, CSS 스타일 정의, 메타데이터정의 -->
+    <meta charset="utf-8" />
+    <title>X-Mas card</title>
+    <style>
+      div > p {
+        display: inline-block;
+        position: absolute;
+        height: 20px;
+        width: 15px;
+        background: lightgray;
+      }
+      img {
+        position: absolute;
+      }
+      #t {
+        z-index: -3;
+        left: 10px;
+        top: 20px;
+      }
+      #tr {
+        z-index: 2;
+        left: 40px;
+        top: 100px;
+      }
+      #P {
+        z-index: 2;
+        left: 450px;
+        top: 100px;
+      }
+      #P1 {
+        z-index: 3;
+        left: 100px;
+        top: 290px;
+      }
+
+      #P2 {
+        z-index: 2;
+        left: 250px;
+        top: 470px;
+      }
+      #P3 {
+        z-index: 2;
+        left: 180px;
+        top: 200px;
+      }
+      div2 {
+        position: relative;
+        top: 580px;
+        left: 100px;
+        width: 100px;
+        padding: 5px;
+        background: beige;
+        color: rosybrown;
+      }
+      div3 {
+        position: relative;
+        top: 30px;
+        left: 0px;
+        width: 100px;
+        padding: 5px;
+        background: beige;
+        color: black;
+        font: italic bold 30px FORTE, sans-serif;
+      }
+      div8 {
+        position: relative;
+        top: 300px;
+        left: 450;
+        width: 1px;
+        padding: 5px;
+        background: beige;
+        color: black;
+        font: italic bold 15px FORTE, sans-serif;
+      }
+      div4 {
+        position: relative;
+        top: 800px;
+        left: 20px;
+        width: 100px;
+        padding: 5px;
+        background: white;
+        color: black;
+      }
+      div#scale:hover {
+        transform: scale(3, 2);
+      }
+    </style>
+    <script>
+      var files = [
+        "media/상자를 클릭하세요.png",
+        "media/노트북.png",
+        "media/지갑.jpg",
+        "media/게임기.jpg",
+        "media/신발.jpg"
+      ];
+      var imgs = new Array();
+      for (var i = 0; i < files.length; i++) {
+        imgs[i] = new Image(); // 메모리에 이미지 객체 생성
+        imgs[i].src = files[i]; // 이미지 로딩
+      }
+
+      // 다음 이미지 출력
+      var next = 1;
+      function change(img) {
+        img.src = imgs[next].src; // 이미지 변경
+        var nameSplit = files[next].split("/");
+        var nameText = document.getElementById("name");
+
+        nameText.innerHTML = "선물 : " + nameSplit[1];
+        next++; // 다음 이미지
+        next %= imgs.length; // 개수를 넘으면 처음으로
+      }
+      function init(img) {
+        var nameSplit = files[next - 1].split("/");
+        var nameText = document.getElementById("name");
+
+        img.src = files[next - 1];
+        nameText.innerHTML = "선물 : " + nameSplit[1];
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- 문서의 본문 텍스트, 이미지, 테이블, 자바스크립트 코드, 동영상 등 -->
+    <div5>
+      <img
+        id="t"
+        src="media/%ED%85%8C%EB%91%90%EB%A6%AC.gif"
+        width="950"
+        height="660"
+      />
+      <img id="tr" src="media/christmastree.png" width="300" height="500" />
+      <img id="P1" src="media/1.png" width="50" height="50" />
+      <img id="P2" src="media/2.png" width="50" height="50" />
+      <img id="P3" src="media/3.png" width="50" height="50" />
+    </div5>
+    <div>
+      <img
+        id="P"
+        src="media/상자를 클릭하세요.png"
+        width="250"
+        height="250"
+        alt="."
+        onclick="change(this)"
+        onload="init(this)"
+      />
+    </div>
+    <div4>
+      <audio
+        id="t1"
+        src="media/dongyokaerol-jinggeulbelrudolpeu-saseumko.mp3"
+        controls
+        autoplay
+        loop
+      ></audio>
+    </div4>
+    <div2>
+      hm28, 장세진
+    </div2>
+    <div3>
+      X-Mas PARTY
+    </div3>
+    <div8>
+      여러분을 X-Mas
+      <p id="name"></p>
+      <p id="size"></p>
+    </div8>
+  </body>
+</html>
